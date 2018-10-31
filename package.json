@@ -1,0 +1,23 @@
+{
+  "name": "social-network",
+  "version": "1.0.0",
+  "description": "a node-social-network demo",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuzhongxian999/node-social-network.git"
+  },
+  "author": "jonson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xuzhongxian999/node-social-network/issues"
+  },
+  "homepage": "https://github.com/xuzhongxian999/node-social-network#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.3.8"
+  }
+}
