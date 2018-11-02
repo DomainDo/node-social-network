@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const Schema = mongoose.Schema()
+const Schema = mongoose.Schema
 
 // Create Schema
 const UserSchema = new Schema({
@@ -20,9 +20,9 @@ const UserSchema = new Schema({
     type: String,
     require: true
   },
-  data: {
+  date: {
     type: String,
-    defalut: data.now()
+    default: Date.now()
   },
 })
 
