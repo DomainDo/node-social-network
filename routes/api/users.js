@@ -7,6 +7,10 @@ const jwt = require('jsonwebtoken')
 const keys = require('../../config/keys')
 const passport = require('passport')
 
+// 引入验证方法
+const validatorReg = require('../../validation/register')
+const validatorLogin = require('../../validation/login')
+
 /**
  * @method GET /api/user
  * @description 测试用例
@@ -25,6 +29,12 @@ router.get('/', (req, res) => {
  * @returns 
  */
 router.post('/register', (req, res) => {
+  const {msg, isValid} = validatorReg(req.body)
+  if(!isValid) {
+    // 不通过
+    return res.json(apiTpl(1, 0, msg))
+  }
+
   // res.json(apiTpl(0, req.body))
   const body = req.body
   // 查询数据库是否拥有邮箱
@@ -62,7 +72,12 @@ router.post('/register', (req, res) => {
  * @returns token
  */
 router.post('/login', (req, res) => {
-  const  email = req.body.email
+  const {msg, isValid} = validatorLogin(req.body)
+  if(!isValid) {
+    // 不通过
+    res.json(apiTpl(1, 0, msg))
+  }
+  const email = req.body.email
   const password = req.body.password
   // 查询数据库
   User.findOne({ email }).then(user => {

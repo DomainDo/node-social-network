@@ -6,19 +6,23 @@ const Schema = mongoose.Schema
 const UserSchema = new Schema({
   name: {
     type: String,
-    require: true
+    require: true,
   },
   email: {
     type: String,
-    require: true
+    require: true,
   },
   password: {
     type: String,
-    require: true
+    require: true,
+  },
+  password2: {
+    type: String,
+    require: true,
   },
   name: {
     type: String,
-    require: true
+    require: true,
   },
   date: {
     type: String,
